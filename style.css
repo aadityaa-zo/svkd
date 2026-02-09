@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('hero.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #C1272D;
+    /* Fallback color */
+    font-family: 'new-science', sans-serif;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coming-soon {
+    font-family: 'new-science', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 122.86%;
+    text-align: center;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    color: #000000;
+    border: 0.2px solid #000000;
+    padding: 20px 40px;
+    background-color: transparent;
+}
+
+.sound-icon {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+.sound-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    font-family: 'new-science', sans-serif;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    color: #000000;
+}
