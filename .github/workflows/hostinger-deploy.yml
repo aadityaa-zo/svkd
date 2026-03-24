@@ -10,22 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: 📂 Sync to Hostinger SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: 📂 Sync to Hostinger (FTPS)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.HOSTINGER_FTP_SERVER }}
           username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
-          protocol: sftp
-          port: 65002  # Hostinger's standard SFTP port
+          protocol: ftps
+          port: 21
           local-dir: ./
-          server-dir: /public_html/  # Usually /public_html/ on Hostinger
+          server-dir: /public_html/
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
             **/tmp/**
-            admin/uploads/**  # DO NOT sync the uploads folder!
-            data/projects.json  # DO NOT sync the local JSON!
+            admin/uploads/**
+            data/projects.json
