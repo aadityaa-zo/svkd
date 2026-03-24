@@ -1,3 +1,5 @@
+DirectoryIndex index.html index.php default.php
+
 # Ensure PHP is handled as code instead of downloading
 <FilesMatch "\.(php|php7|php8)$">
     SetHandler application/x-httpd-php
