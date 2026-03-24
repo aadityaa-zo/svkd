@@ -38,8 +38,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     gap: 0.5vh;
+    width: 100%;
+}
+
+.menu-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4vh;
+    padding: 0 2vw;
     width: 100%;
 }
 
@@ -89,15 +98,15 @@ a.menu-item:hover {
 
     .menu {
         flex-direction: row;
-        /* align-items: center; */
-        /* border-top: 1px solid #333; */
-        /* border-bottom: 1px solid #333; */
-        /* padding: 0.5vh 1vw; */
         gap: 5vw;
-
-
         justify-content: space-between;
-        /* Space between links */
+    }
+
+    .menu-top {
+        margin-top: 2vh;
+        padding: 0 4vw;
+        flex-wrap: wrap;
+        gap: 2vh;
     }
 
     .active {
@@ -141,6 +150,13 @@ body.work-page .menu {
     display: flex;
     width: 100vw;
     height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .split-layout {
+        flex-direction: column;
+        height: auto;
+    }
 }
 
 .left-sidebar {
@@ -611,5 +627,180 @@ body.work-page .menu {
 
     .bg-text {
         display: none;
+    }
+}
+
+/* Information / Jaankaari Page Styles */
+.left-sidebar-nav {
+    width: 20vw;
+    min-width: 20vw;
+    border-right: 1px solid #333;
+    padding: 4vh 2.5vw;
+}
+
+.side-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    list-style: none;
+    position: sticky;
+    top: 15vh;
+}
+
+.side-menu-item {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #888;
+    padding: 0.5vh 1vw;
+    width: fit-content;
+    cursor: pointer;
+    letter-spacing: 0.08rem;
+    transition: all 0.2s;
+}
+
+.side-menu-item.active-sub {
+    background-color: var(--primary-red);
+    color: white !important;
+}
+
+.right-content-scroll {
+    flex: 1;
+    padding: 4vh 5vw;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.right-content-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.info-section {
+    margin-bottom: 12vh;
+}
+
+.section-title {
+    background-color: var(--primary-red);
+    color: white;
+    display: inline-block;
+    padding: 0.4vh 1.2vw;
+    font-size: 0.8rem;
+    margin-bottom: 4vh;
+    text-transform: uppercase;
+    letter-spacing: 0.12rem;
+}
+
+.info-text {
+    color: #aaa;
+    font-size: 0.75rem;
+    line-height: 1.8;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    max-width: 800px;
+    margin-bottom: 6vh;
+}
+
+.contact-form {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    margin-top: 2vh;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.form-label {
+    font-size: 0.7rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.form-input, .form-textarea {
+    background: transparent;
+    border: 1px solid #444;
+    padding: 1.5vh 1.2vw;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus, .form-textarea:focus {
+    border-color: var(--primary-red);
+}
+
+.form-textarea {
+    height: 18vh;
+    resize: none;
+}
+
+.contact-links {
+    margin-top: 6vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.contact-link {
+    font-size: 0.7rem;
+    color: #666;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s;
+}
+
+.contact-link:hover {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .left-sidebar-nav {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #333;
+        padding: 2vh 5vw;
+        background-color: #1a1a1a;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+
+    .side-menu {
+        flex-direction: row;
+        gap: 2vw;
+        justify-content: space-between;
+        position: static;
+        padding: 1vh 0;
+    }
+
+    .side-menu-item {
+        font-size: 0.65rem;
+        padding: 0.8vh 2vw;
+    }
+
+    .right-content-scroll {
+        padding: 6vh 6vw;
+        overflow-y: visible;
+    }
+
+    .info-section {
+        margin-bottom: 10vh;
+    }
+
+    .info-text {
+        font-size: 0.8rem;
+    }
+
+    .section-title {
+        font-size: 0.9rem;
+        padding: 0.6vh 3vw;
     }
 }
