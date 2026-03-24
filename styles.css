@@ -89,12 +89,14 @@ a.menu-item:hover {
 
     .menu {
         flex-direction: row;
-        align-items: center;
-        border-top: 1px solid #333;
-        border-bottom: 1px solid #333;
-        padding: 0.5vh 1vw;
+        /* align-items: center; */
+        /* border-top: 1px solid #333; */
+        /* border-bottom: 1px solid #333; */
+        /* padding: 0.5vh 1vw; */
         gap: 5vw;
-        justify-content: space-evenly;
+
+
+        justify-content: space-between;
         /* Space between links */
     }
 
@@ -520,10 +522,10 @@ body.work-page .menu {
 
     .menu {
         flex-direction: row;
-        border-top: 1px solid #333;
-        border-bottom: 1px solid #333;
-        padding: 1.5vh 0;
-        margin-bottom: 2vh;
+        /* border-top: 1px solid #333; */
+        /* border-bottom: 1px solid #333; */
+        /* padding: 1.5vh 0; */
+        /* margin-bottom: 2vh; */
         justify-content: space-between;
     }
 
