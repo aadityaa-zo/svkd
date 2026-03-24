@@ -1,0 +1,6 @@
+RewriteEngine On
+# Basic protection
+Options -Indexes
+
+# If someone tries to access index.php directly without /admin
+# Just making sure things are OK. For now, simple.

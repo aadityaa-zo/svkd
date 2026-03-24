@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Ensure work.php can be accessed directly
+# Map /work/slug to work.php?slug=slug
+RewriteRule ^work/([a-z0-9-]+)/?$ work.php?slug=$1 [L,QSA]
+
+# Fix for assets (so they don't break if in a subfolder like /work/)
+# If the file/directory exists, don't rewrite
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

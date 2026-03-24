@@ -1,0 +1,31 @@
+name: Deploy to Hostinger (Manual Sync)
+
+on:
+  push:
+    branches:
+      - main  # Set this to your production branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: 📂 Sync to Hostinger SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          protocol: sftp
+          port: 65002  # Hostinger's standard SFTP port
+          local-dir: ./
+          server-dir: /public_html/  # Usually /public_html/ on Hostinger
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/tmp/**
+            admin/uploads/**  # DO NOT sync the uploads folder!
+            data/projects.json  # DO NOT sync the local JSON!

@@ -1,0 +1,265 @@
+@font-face {
+    font-family: 'TradeGothic';
+    src: url('../../NaturalMono-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --fluid-font: clamp(0.7rem, 1vw + 0.4rem, 1rem);
+    --primary-red: #ff0000;
+    --text-muted: #808080;
+    --text-hover: #ffffff;
+    --bg-main: #1a1a1a;
+    --bg-content: #111;
+    --border-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: #f0f0f0;
+    font-family: 'TradeGothic', sans-serif;
+    font-weight: 100;
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+}
+
+.admin-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Sidebar Adaptation of .left-sidebar */
+.sidebar {
+    width: 20vw;
+    min-width: 20vw;
+    max-width: 20vw;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 4vh 2.5vw;
+    background-color: var(--bg-main);
+    position: fixed;
+    height: 100vh;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.1rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    margin-bottom: 4vh;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5vh;
+    width: 100%;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+.nav-link {
+    font-size: var(--fluid-font);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-muted);
+    padding: 0 0.4vw;
+    display: block;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.nav-link svg {
+    display: none; /* Matching the clean text-only look of the provided menu */
+}
+
+.nav-link:hover {
+    background-color: var(--primary-red);
+    color: white;
+}
+
+.nav-link.active {
+    background-color: var(--primary-red) !important;
+    color: white !important;
+    padding: 0.5vh 1vw;
+    cursor: default;
+}
+
+/* Main Content Adaptation of .right-content */
+.main-content {
+    margin-left: 20vw;
+    flex: 1;
+    position: relative;
+    background-color: var(--bg-content);
+    display: flex;
+    flex-direction: column;
+    padding: 4vh 4vw;
+    overflow-y: auto;
+}
+
+header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2vh;
+    margin-bottom: 4vh;
+}
+
+header h1 {
+    color: white;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.user-info {
+    font-size: 0.75rem;
+    letter-spacing: 0.08rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* Glass Card Adaptation */
+.glass-card {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 3vh 2vw;
+    margin-bottom: 3vh;
+}
+
+/* Table Adaptation */
+.data-table-container {
+    border: 1px solid var(--border-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #000;
+    padding: 1.5vh 1.5vw;
+    text-align: left;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+}
+
+td {
+    padding: 1.5vh 1.5vw;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Form Groups / Inputs Adaptation */
+.form-group {
+    margin-bottom: 3vh;
+}
+
+label {
+    display: block;
+    margin-bottom: 1vh;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+input[type="text"], input[type="password"], textarea, select {
+    background: transparent;
+    border: 1px solid #555;
+    color: #f0f0f0;
+    font-family: inherit;
+    font-size: 0.9rem;
+    width: 100%;
+    padding: 1.2vh 1vw;
+    outline: none;
+    letter-spacing: 0.05rem;
+}
+
+input:focus {
+    border-color: var(--primary-red);
+}
+
+/* Buttons Adaptation */
+.btn {
+    background: transparent;
+    border: 1px solid #555;
+    color: var(--text-muted);
+    padding: 0.8vh 1.5vw;
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: var(--primary-red);
+    color: white;
+    border-color: var(--primary-red);
+}
+
+.btn-primary {
+    background-color: #a0a0a0;
+    color: #1a1a1a;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: black;
+}
+
+.btn-danger {
+    color: var(--primary-red);
+    border-color: rgba(255,0,0,0.3);
+}
+
+.btn-danger:hover {
+    background-color: var(--primary-red);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        padding: 2vh 4vw;
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 3vh 4vw;
+    }
+    .nav-menu {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
