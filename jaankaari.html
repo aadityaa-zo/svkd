@@ -186,30 +186,22 @@
 </head>
 
 <body class="work-page">
-    <!-- Mobile Top Nav -->
-    <nav class="main-nav-mobile" style="display: none;">
-        <a href="index.html" class="menu-item" data-hover="DEV ADHVARYU">DEV ADHVARYU</a>
-        <a href="./work.php" class="menu-item" data-hover="WORK">WORK</a>
-        <a href="jaankaari.html" class="menu-item active" data-hover="INFORMATION">JAANKAARI</a>
-    </nav>
-
     <div class="split-layout">
-        <aside class="left-sidebar-nav">
-            <!-- Desktop Integrated Nav -->
-            <div class="desktop-nav" style="margin-bottom: 6vh; display: flex; flex-direction: column; gap: 0.5vh;">
-                <a href="index.html" class="side-menu-item" style="color: #fff; padding-left: 0;" data-hover="DEV ADHVARYU">DEV ADHVARYU</a>
-                <a href="./work.php" class="side-menu-item" style="color: #fff; padding-left: 0;" data-hover="WORK">WORK</a>
-                <a href="jaankaari.html" class="side-menu-item active-sub" style="padding-left: 1vw !important;" data-hover="INFORMATION">JAANKAARI</a>
-            </div>
+        <aside class="left-sidebar">
+            <nav class="menu" style="padding-bottom: 30px;">
+                <a href="index.html" class="menu-item" data-hover="DEV ADHVARYU">DEV ADHVARYU</a>
+                <a href="./work.php" class="menu-item" data-hover="WORK">WORK</a>
+                <a href="jaankaari.html" class="menu-item active" data-hover="INFORMATION">JAANKAARI</a>
+            </nav>
 
-            <ul class="side-menu">
-                <li class="side-menu-item active-sub" data-target="contact">CONTACT</li>
-                <li class="side-menu-item" data-target="biography">BIOGRAPHY</li>
-                <li class="side-menu-item" data-target="studio">STUDIO</li>
+            <ul class="side-menu" style="list-style: none; display: flex; flex-direction: column; gap: 0.5vh;">
+                <li class="side-menu-item active-sub" data-target="contact" style="cursor: pointer; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08rem; color: #888; padding: 0.5vh 0;">CONTACT</li>
+                <li class="side-menu-item" data-target="biography" style="cursor: pointer; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08rem; color: #888; padding: 0.5vh 0;">BIOGRAPHY</li>
+                <li class="side-menu-item" data-target="studio" style="cursor: pointer; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08rem; color: #888; padding: 0.5vh 0;">STUDIO</li>
             </ul>
         </aside>
 
-        <main class="right-content-scroll">
+        <main class="right-content-scroll" style="flex: 1; padding: 4vh 5vw; overflow-y: auto; scrollbar-width: none;">
             <section id="contact" class="info-section">
                 <div class="section-title">CONTACT</div>
                 <div class="info-text">IF YOU ARE INTERESTED IN WORKING TOGETHER PLEASE FILL THIS FORM</div>
