@@ -4,14 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaankaari - Dev Adhvaryu - NEW CHANGE</title>
+    <title>Jaankaari - Dev Adhvaryu</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .split-layout {
+            display: flex;
+            height: calc(100vh - 8vh); /* Adjust for top menu space */
+            width: 100vw;
+            margin-top: 8vh;
+        }
+
+        .left-sidebar-nav {
+            width: 20vw;
+            border-right: 1px solid #333;
+            padding: 4vh 2.5vw;
+        }
+
+        .side-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 1vh;
+            list-style: none;
+        }
+
+        .side-menu-item {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #888;
+            padding: 0.5vh 1vw;
+            width: fit-content;
+            cursor: pointer;
+            letter-spacing: 0.08rem;
+        }
+
+        .side-menu-item.active-sub {
+            background-color: var(--primary-red);
+            color: white !important;
+        }
+
+        .right-content-scroll {
+            flex: 1;
+            padding: 4vh 5vw;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+
+        .right-content-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .info-section {
+            margin-bottom: 10vh;
+        }
+
+        .section-title {
+            background-color: var(--primary-red);
+            color: white;
+            display: inline-block;
+            padding: 0.4vh 1.2vw;
+            font-size: 0.8rem;
+            margin-bottom: 3vh;
+            text-transform: uppercase;
+            letter-spacing: 0.12rem;
+        }
+
+        .info-text {
+            color: #aaa;
+            font-size: 0.75rem;
+            line-height: 1.8;
+            letter-spacing: 0.08rem;
+            text-transform: uppercase;
+            max-width: 800px;
+            margin-bottom: 6vh;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5vh;
+            margin-top: 2vh;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8vh;
+        }
+
+        .form-label {
+            font-size: 0.7rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .form-input, .form-textarea {
+            background: transparent;
+            border: 1px solid #444;
+            padding: 1.2vh 1vw;
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.8rem;
+            outline: none;
+        }
+
+        .form-textarea {
+            height: 15vh;
+            resize: none;
+        }
+
+        .contact-links {
+            margin-top: 4vh;
+            display: flex;
+            flex-direction: column;
+            gap: 1vh;
+        }
+
+        .contact-link {
+            font-size: 0.7rem;
+            color: #666;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .contact-link:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .split-layout {
+                flex-direction: column;
+                margin-top: 15vh; /* Space for dual menus */
+            }
+
+            .left-sidebar-nav {
+                width: 100%;
+                border-right: none;
+                padding: 1vh 4vw;
+                position: fixed;
+                top: 10vh; /* Below main menu */
+                background-color: var(--bg-main);
+                z-index: 999;
+            }
+
+            .side-menu {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 2vw;
+            }
+
+            .side-menu-item {
+                font-size: 0.65rem;
+                padding: 0.8vh 2vw;
+                flex: 1;
+                text-align: center;
+            }
+
+            .right-content-scroll {
+                padding: 4vh 4vw;
+                margin-top: 2vh;
+            }
+
+            /* Adjust top menu for tighter mobile stack */
+            .menu {
+                margin-top: 2vh !important;
+                padding: 1vh 4vw !important;
+                height: 6vh;
+                position: fixed;
+                background-color: var(--bg-main);
+                z-index: 1000;
+            }
+
+            .menu-item {
+                font-size: 0.65rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="work-page">
-    <nav class="menu menu-top">
+    <nav class="menu"
+        style=" margin-top: 4vh;   margin-left: 2vw; margin-right: 2vw; padding-left: 2vw; padding-right: 2vw; display: flex; justify-content: space-between;">
         <a href="index.html" class="menu-item" data-hover="DEV ADHVARYU">DEV ADHVARYU</a>
-        <a href="./work.php" class="menu-item" data-hover="WORK">KAAM</a>
+        <a href="./work.php" class="menu-item" data-hover="WORK">WORK</a>
         <a href="jaankaari.html" class="menu-item active" data-hover="INFORMATION">JAANKAARI</a>
     </nav>
 
@@ -28,7 +204,7 @@
             <section id="contact" class="info-section">
                 <div class="section-title">CONTACT</div>
                 <div class="info-text">IF YOU ARE INTERESTED IN WORKING TOGETHER PLEASE FILL THIS FORM</div>
-
+                
                 <form class="contact-form">
                     <div class="form-group">
                         <label class="form-label">NAME:</label>
@@ -53,65 +229,35 @@
             <section id="biography" class="info-section">
                 <div class="section-title">BIOGRAPHY</div>
                 <div class="info-text">
-                    DEV ADHVARYU (AKA GROOVY) IS AN INDIAN CREATIVE DIRECTOR, VISUAL DIRECTOR AND GRAPHIC DESIGNER BASED
-                    IN SALARKUNDLA, GUJARAT. HIS WORK EXPLORES THE VISUAL LANGUAGE OF CONTEMPORARY MUSIC CULTURE,
-                    PARTICULARLY WITHIN THE RAPIDLY EVOLVING LANDSCAPE OF DESI HIP HOP, WORKING ACROSS COVER ART, BRAND
-                    IDENTITIES, POSTERS, CONCERT VISUALS AND VISUAL DIRECTION. ADHVARYU DEVELOPS VISUAL SYSTEMS THAT
-                    EXTEND AN ARTIST'S VOICE BEYOND SOUND INTO A BROADER CULTURAL AND VISUAL PRESENCE.
+                    DEV ADHVARYU (AKA GROOVY) IS AN INDIAN CREATIVE DIRECTOR, VISUAL DIRECTOR AND GRAPHIC DESIGNER BASED IN SALARKUNDLA, GUJARAT. HIS WORK EXPLORES THE VISUAL LANGUAGE OF CONTEMPORARY MUSIC CULTURE, PARTICULARLY WITHIN THE RAPIDLY EVOLVING LANDSCAPE OF DESI HIP HOP, WORKING ACROSS COVER ART, BRAND IDENTITIES, POSTERS, CONCERT VISUALS AND VISUAL DIRECTION. ADHVARYU DEVELOPS VISUAL SYSTEMS THAT EXTEND AN ARTIST'S VOICE BEYOND SOUND INTO A BROADER CULTURAL AND VISUAL PRESENCE.
                 </div>
                 <div class="info-text">
-                    ROOTED IN INSTINCT RATHER THAN TRADITIONAL DESIGN FRAMEWORKS, ADHVARYU'S PRACTICE IS GUIDED BY
-                    TASTE, CULTURAL AWARENESS AND PERSONAL INTUITION. HIS WORK DRAWS FROM THE CONTRASTS BETWEEN HIS
-                    UPBRINGING IN A SMALL GUJARATI TOWN AND THE GLOBAL VISUAL CULTURE OF MUSIC, FASHION AND THE
-                    INTERNET. BY FUSING LOCAL EXPERIENCES WITH WIDELY RECOGNIZED CULTURAL REFERENCES, HE CONSTRUCTS
-                    VISUAL IDENTITIES THAT SIT BETWEEN THE REGIONAL AND THE GLOBAL, TRANSLATING EMERGING MUSICAL
-                    MOVEMENTS INTO DISTINCTIVE VISUAL FORM.
+                    ROOTED IN INSTINCT RATHER THAN TRADITIONAL DESIGN FRAMEWORKS, ADHVARYU'S PRACTICE IS GUIDED BY TASTE, CULTURAL AWARENESS AND PERSONAL INTUITION. HIS WORK DRAWS FROM THE CONTRASTS BETWEEN HIS UPBRINGING IN A SMALL GUJARATI TOWN AND THE GLOBAL VISUAL CULTURE OF MUSIC, FASHION AND THE INTERNET. BY FUSING LOCAL EXPERIENCES WITH WIDELY RECOGNIZED CULTURAL REFERENCES, HE CONSTRUCTS VISUAL IDENTITIES THAT SIT BETWEEN THE REGIONAL AND THE GLOBAL, TRANSLATING EMERGING MUSICAL MOVEMENTS INTO DISTINCTIVE VISUAL FORM.
                 </div>
                 <div class="info-text">
-                    ADHVARYU HAS COLLABORATED WITH MAJOR LABELS AND COMPANIES INCLUDING GULLY GANG INDIA, KALANKAAR
-                    RECORDS, MASS APPEAL INDIA, UNIVERSAL MUSIC, DEF JAM RECORDINGS INDIA, AZADI RECORDS, SONY MUSIC
-                    INDIA, LENSKART, 21 STREETZ, THALTEJ PUBLISHING COMPANY, ACEPELLA PRODUCTIONS AND YOUTUBE. HIS WORK
-                    HAS ACCOMPANIED RELEASES AND PROJECTS BY ARTISTS SUCH AS DIVINE, KR$NA, DINO JAMES, MC ALTAF,
-                    SAMMOHIT, RAU SAAB, 99 SIDE, PANTHER, BHADRAVKAR, J TRIX, SIYAAM, DHANJI, KRATEX, HARSH RAO, BABY
-                    JEAN, DIZLAW AND OTHERS WITHIN INDIA'S CONTEMPORARY HIP HOP ECOSYSTEM.
+                    ADHVARYU HAS COLLABORATED WITH MAJOR LABELS AND COMPANIES INCLUDING GULLY GANG INDIA, KALANKAAR RECORDS, MASS APPEAL INDIA, UNIVERSAL MUSIC, DEF JAM RECORDINGS INDIA, AZADI RECORDS, SONY MUSIC INDIA, LENSKART, 21 STREETZ, THALTEJ PUBLISHING COMPANY, ACEPELLA PRODUCTIONS AND YOUTUBE. HIS WORK HAS ACCOMPANIED RELEASES AND PROJECTS BY ARTISTS SUCH AS DIVINE, KR$NA, DINO JAMES, MC ALTAF, SAMMOHIT, RAU SAAB, 99 SIDE, PANTHER, BHADRAVKAR, J TRIX, SIYAAM, DHANJI, KRATEX, HARSH RAO, BABY JEAN, DIZLAW AND OTHERS WITHIN INDIA'S CONTEMPORARY HIP HOP ECOSYSTEM.
                 </div>
                 <div class="info-text">
-                    HIS VISUAL PRACTICE SPANS THE DEVELOPMENT OF ALBUM ARTWORK, CREATIVE DIRECTION FOR MUSIC PROJECTS
-                    AND VISUAL IDENTITIES FOR ARTISTS AND CULTURAL PLATFORMS. ADHVARYU CONTRIBUTED VISUAL WORK TO
-                    DIVINE'S FIFTH STUDIO ALBUM, WAS FEATURED IN MTV HUSTLE SEASON 4, AND CREATED VISUALS FOR YOUTUBE
-                    FANFEST 2025, POSITIONING HIS WORK WITHIN SOME OF THE MOST VISIBLE PLATFORMS SHAPING INDIA'S MUSIC
-                    CULTURE TODAY.
+                    HIS VISUAL PRACTICE SPANS THE DEVELOPMENT OF ALBUM ARTWORK, CREATIVE DIRECTION FOR MUSIC PROJECTS AND VISUAL IDENTITIES FOR ARTISTS AND CULTURAL PLATFORMS. ADHVARYU CONTRIBUTED VISUAL WORK TO DIVINE'S FIFTH STUDIO ALBUM, WAS FEATURED IN MTV HUSTLE SEASON 4, AND CREATED VISUALS FOR YOUTUBE FANFEST 2025, POSITIONING HIS WORK WITHIN SOME OF THE MOST VISIBLE PLATFORMS SHAPING INDIA'S MUSIC CULTURE TODAY.
                 </div>
                 <div class="info-text">
-                    EMERGING FROM A TOWN WHERE CONTEMPORARY DESIGN CULTURE REMAINS LARGELY UNFAMILIAR, ADHVARYU
-                    APPROACHES DESIGN AS BOTH A PERSONAL LANGUAGE AND A CULTURAL INTERVENTION. HIS AMBITION IS TO EXPAND
-                    THE VISIBILITY OF CREATIVE WORK EMERGING FROM GUJARAT AND TO INFLUENCE A GENERATION THAT MAY NOT YET
-                    RECOGNIZE DESIGN AS A FIELD OF EXPRESSION. THROUGH HIS PRACTICE HE SEEKS TO BUILD A VISUAL LEGACY
-                    THAT CONNECTS HIS LOCAL CONTEXT WITH GLOBAL CREATIVE CULTURE.
+                    EMERGING FROM A TOWN WHERE CONTEMPORARY DESIGN CULTURE REMAINS LARGELY UNFAMILIAR, ADHVARYU APPROACHES DESIGN AS BOTH A PERSONAL LANGUAGE AND A CULTURAL INTERVENTION. HIS AMBITION IS TO EXPAND THE VISIBILITY OF CREATIVE WORK EMERGING FROM GUJARAT AND TO INFLUENCE A GENERATION THAT MAY NOT YET RECOGNIZE DESIGN AS A FIELD OF EXPRESSION. THROUGH HIS PRACTICE HE SEEKS TO BUILD A VISUAL LEGACY THAT CONNECTS HIS LOCAL CONTEXT WITH GLOBAL CREATIVE CULTURE.
                 </div>
                 <div class="info-text">
-                    DEEPLY INFLUENCED BY THE CULTURAL IMPACT AND CREATIVE PHILOSOPHY OF KANYE WEST, ADHVARYU VIEWS
-                    DESIGN AS A TOOL FOR SHAPING IDENTITY, CULTURE AND INFLUENCE. HIS LONG TERM VISION IS TO CONTINUE
-                    EXPANDING THE VISUAL LANGUAGE OF MUSIC WHILE BRINGING WIDER RECOGNITION TO THE CREATIVE VOICES
-                    EMERGING FROM GUJARAT.
+                    DEEPLY INFLUENCED BY THE CULTURAL IMPACT AND CREATIVE PHILOSOPHY OF KANYE WEST, ADHVARYU VIEWS DESIGN AS A TOOL FOR SHAPING IDENTITY, CULTURE AND INFLUENCE. HIS LONG TERM VISION IS TO CONTINUE EXPANDING THE VISUAL LANGUAGE OF MUSIC WHILE BRINGING WIDER RECOGNITION TO THE CREATIVE VOICES EMERGING FROM GUJARAT.
                 </div>
             </section>
 
             <section id="studio" class="info-section">
                 <div class="section-title">PEARS</div>
                 <div class="info-text">
-                    THESE ARE THE CREATIVES AND PEARS THAT REGULARLY COLLABORATE WITH DEV AND NON OF HIS BEST WORK WOULD
-                    BE POSSIBLE WITHOUT THEM
+                    THESE ARE THE CREATIVES AND PEARS THAT REGULARLY COLLABORATE WITH DEV AND NON OF HIS BEST WORK WOULD BE POSSIBLE WITHOUT THEM
                 </div>
                 <div class="info-text">
-                    PARIKSHIT SINGH (SASTA ACID) : PARIKSHIT IS A CREATIVE HEAD OF THE GULLY GANG INDIA AND ALSO RUNS
-                    HIS OWN DESIGN STUDIO NOW. HE IS BEEN A FUNDAMENTAL PERSON IN SHAPING DEV'S WORK AND GIVING HIM THE
-                    INDUSTRY EXPERIENCE HE CURRENTLY HAS.
+                    PARIKSHIT SINGH (SASTA ACID) : PARIKSHIT IS A CREATIVE HEAD OF THE GULLY GANG INDIA AND ALSO RUNS HIS OWN DESIGN STUDIO NOW. HE IS BEEN A FUNDAMENTAL PERSON IN SHAPING DEV'S WORK AND GIVING HIM THE INDUSTRY EXPERIENCE HE CURRENTLY HAS.
                 </div>
                 <div class="info-text">
-                    GAURAV ANEY (THE INDIAN DOODLER) : A GREAT FRIEND AND ONE OF THE TOP CREATIVES IN THE INDUSTRY HAS
-                    BEEN ASSOCIATED WITH GROOVY DURING MANY OF HIS WORKS AND SOME OF THE WORKS WERE TOTALLY GIVEN BY HIM
-                    IN HIS EARLIER STAGES OF CAREER.
+                    GAURAV ANEY (THE INDIAN DOODLER) : A GREAT FRIEND AND ONE OF THE TOP CREATIVES IN THE INDUSTRY HAS BEEN ASSOCIATED WITH GROOVY DURING MANY OF HIS WORKS AND SOME OF THE WORKS WERE TOTALLY GIVEN BY HIM IN HIS EARLIER STAGES OF CAREER.
                 </div>
                 <div class="info-text">
                     SIDH SHIKHARAN (ITREDMGUY) : ...
@@ -130,7 +276,7 @@
             item.addEventListener('click', () => {
                 const targetId = item.dataset.target;
                 const targetEl = document.getElementById(targetId);
-
+                
                 scrollContainer.scrollTo({
                     top: targetEl.offsetTop - targetEl.parentElement.offsetTop - 20,
                     behavior: 'smooth'
